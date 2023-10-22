@@ -20,6 +20,9 @@ app.get('/getAll/', function(req, res) {
 });
 
 app.get('/getCity/:cidade', function(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET'); 
+
   const { cidade } = req.params; 
   console.log(cidade);
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API_KEY}ad&units=metric`)
